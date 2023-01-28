@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
 
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import LogIn from "./Pages/Login";
+//import Dashboard from "./Pages/Dashboard"
+// import Register from "./Pages/Register";
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
+import "./App.css"
+import Register from "./Pages/Register";
+import ForgotPassword from "./Pages/ForgotPassword";
+import ResetPassword from "./Pages/ResetPassword";
+import Dashboard from './Pages/Dashboard'
 function App() {
+
+  document.title ="Todo App"
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+
+<Router>
+    <Routes>
+      <Route path="/" exact element={<LogIn />}/>
+      <Route path="/dashboard" exact element={<Dashboard />}/>
+      <Route path="/register" exact element={<Register/>} />
+      <Route path="/user/forgotPassword" element={<ForgotPassword />} />
+      <Route path="/users/:userId/rp/:randomSt" element={ < ResetPassword />} />
+ 
+    </Routes>
+  </Router>
+   </>
   );
 }
 
